@@ -1,11 +1,13 @@
 ﻿using System.Text.RegularExpressions;
+using CalculatorLibrary;
 
-namespace Calculator.m1chael888
+namespace CalculatorProgram.m1chael888
 {
     class Program
     {
         static void Main(string[] args)
         {
+            var calc = new Calculator();
             bool done = false;
 
             Console.WriteLine("Console Calculator in C#");
@@ -59,16 +61,16 @@ namespace Calculator.m1chael888
                 {
                     try
                     {
-                        result = Calc.DoOperation(cleanNum1, cleanNum2, op);
+                        result = calc.DoOperation(cleanNum1, cleanNum2, op);
                         if (double.IsNaN(result))
                         {
                             Console.WriteLine("This operation will result in a math error\n");
                         }
                         else Console.WriteLine("Your result: {0:0.##}\n", result);
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
+                        Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + ex.Message);
                     }
                 }
                 Console.WriteLine("------------------------\n");
@@ -77,39 +79,8 @@ namespace Calculator.m1chael888
                 if (Console.ReadLine() == "n") done = true;
                 Console.WriteLine("\n");
             }
+            calc.Finish();
             return;
-        }
-    }
-
-    class Calc
-    {
-        public static double DoOperation(double num1, double num2, string op)
-        {
-            double result = double.NaN;
-
-            // handle operation passed as op
-            switch (op)
-            {
-                case "a":
-                    result = num1 + num2;
-                    break;
-                case "s":
-                    result = num1 - num2;
-                    break;
-                case "m":
-                    result = num1 * num2;
-                    break;
-                case "d":
-                    // loop untill user enters a non zero number
-                    if (num2 != 0)
-                    {
-                        result = num1 / num2;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return result;
         }
     }
 }
