@@ -15,12 +15,10 @@ namespace CalculatorProgram.m1chael888
 
             while (!done)
             {
-                // declare and initialize variables
                 string? input1 = "";
                 string? input2 = "";
                 double result = 0;
 
-                // capture user input
                 Console.Write("Type a number, and then press Enter: ");
                 input1 = Console.ReadLine();
 
@@ -31,7 +29,6 @@ namespace CalculatorProgram.m1chael888
                     input1 = Console.ReadLine();
                 }
 
-                // capture second user input
                 Console.Write("Type another number, and then press Enter: ");
                 input2 = Console.ReadLine();
 
@@ -42,7 +39,6 @@ namespace CalculatorProgram.m1chael888
                     input2 = Console.ReadLine();
                 }
 
-                // ask user to choose an operator
                 Console.WriteLine("Choose an operator from the following list:");
                 Console.WriteLine("\ta - Add");
                 Console.WriteLine("\ts - Subtract");
@@ -52,7 +48,6 @@ namespace CalculatorProgram.m1chael888
 
                 string? op = Console.ReadLine();
 
-                // validate input is not null, and matches the pattern
                 if (op == null || !Regex.IsMatch(op, "[a|s|m|d]"))
                 {
                     Console.WriteLine("Error: Unrecognized input");

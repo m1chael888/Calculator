@@ -27,7 +27,6 @@ namespace CalculatorLibrary
             writer.WriteValue(num2);
             writer.WritePropertyName("Operation");
 
-            // handle operation passed as op
             switch (op)
             {
                 case "a":
@@ -43,7 +42,6 @@ namespace CalculatorLibrary
                     Trace.WriteLine(String.Format("{0} * {1} = {2}", num1, num2, result));
                     break;
                 case "d":
-                    // loop untill user enters a non zero number
                     if (num2 != 0)
                     {
                         result = num1 / num2;
