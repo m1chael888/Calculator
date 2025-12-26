@@ -16,16 +16,16 @@ namespace CalculatorProgram.m1chael888
             void Menu()
             {
                 Console.Clear();
+                Console.WriteLine("- Calculator Menu -");
+                Console.WriteLine("------------------------\n");
+                Console.WriteLine("1 - Proceed to calucation");
+                Console.WriteLine("2 - View calculation history");
+                Console.WriteLine("3 - Exit program");
+                Console.Write("\nEnter the number of your desired menu option: ");
 
                 bool done = false;
                 while (!done)
                 {
-                    Console.WriteLine("- Calculator Menu -");
-                    Console.WriteLine("------------------------\n");
-                    Console.WriteLine("1 - Proceed to calucation");
-                    Console.WriteLine("2 - View calculation history");
-                    Console.WriteLine("3 - Exit program");
-                    Console.Write("\nEnter the number of your desired menu option: ");
                     string input = Console.ReadLine();
 
                     switch (input)
@@ -42,7 +42,7 @@ namespace CalculatorProgram.m1chael888
                             Environment.Exit(0);
                             break;
                         default:
-                            Console.WriteLine("Invalid choice. Please enter a valid menu option (1-3");
+                            Console.Write("Invalid choice. Please enter a valid menu option (1-3): ");
                             break;
                     }
                 }
@@ -137,12 +137,12 @@ namespace CalculatorProgram.m1chael888
                     bool done2 = false;
                     while (!done2)
                     {
-                        Console.WriteLine("Choose an operator from the following list:");
+                        Console.WriteLine("\nChoose an operator from the following list:");
                         Console.WriteLine("\ta - Add");
                         Console.WriteLine("\ts - Subtract");
                         Console.WriteLine("\tm - Multiply");
                         Console.WriteLine("\td - Divide");
-                        Console.Write("Your choice: ");
+                        Console.Write("\nYour choice: ");
                         string? op = Console.ReadLine();
 
                         if (op == null || !Regex.IsMatch(op, "[a|s|m|d]"))
@@ -162,6 +162,9 @@ namespace CalculatorProgram.m1chael888
                                 }
                                 else
                                 {
+                                    Console.Clear();
+                                    Console.WriteLine("- Whats next? -");
+                                    Console.WriteLine("------------------------\n");
                                     Console.WriteLine("Your result: {0:0.##}", result);
 
                                     switch (op)
