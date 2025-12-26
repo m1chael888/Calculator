@@ -8,7 +8,7 @@ namespace CalculatorProgram.m1chael888
         static void Main(string[] args)
         {
             var calc = new Calculator();
-            var history = new Dictionary<string, double>();
+            var history = new Dictionary<int, string>();
             int count = 0;
 
             Menu();
@@ -51,7 +51,6 @@ namespace CalculatorProgram.m1chael888
             void ViewHistory()
             {
                 Console.Clear();
-
                 Console.WriteLine("- Calculation History -");
                 Console.WriteLine("------------------------\n");
 
@@ -65,20 +64,20 @@ namespace CalculatorProgram.m1chael888
                     foreach (var calculation in history)
                     {
                         calcNum++;
-                        Console.WriteLine($"Calculation {calcNum}: {calculation.Key}");
+                        Console.WriteLine($"Calculation {calcNum}: {calculation.Value}");
                     }
                 }
+
                 Console.WriteLine("------------------------");
+                Console.WriteLine("\n1 - Delete History (This cannot be undone)");
+                Console.WriteLine("2 - Return to menu");
+                Console.WriteLine("3 - Exit program");
+                Console.Write("\nHow would you like to proceed? Choose an option: ");
 
                 bool done = false;
                 while (!done)
                 {
-                    Console.WriteLine("\n1 - Delete History (This cannot be undone)");
-                    Console.WriteLine("2 - Return to menu");
-                    Console.WriteLine("3 - Exit program");
-                    Console.Write("\nHow would you like to proceed? Choose an option: ");
                     string input = Console.ReadLine();
-
                     switch (input)
                     {
                         case "1":
@@ -94,17 +93,15 @@ namespace CalculatorProgram.m1chael888
                             Environment.Exit(0);
                             break;
                         default:
-                            Console.WriteLine("Invalid choice. Please enter a valid menu option (1-3");
+                            Console.Write("Invalid choice. Please enter a valid menu option (1-3): ");
                             break;
                     }
-                    if (Console.ReadLine() == "n") done = true;
                 }
             }
 
             void Calculation()
             {
                 Console.Clear();
-
                 bool done = false;
                 while (!done)
                 {
@@ -150,7 +147,6 @@ namespace CalculatorProgram.m1chael888
                             Console.WriteLine("Invalid choice. Please enter a valid operand");
                         }
 
-
                         else
                         {
                             try
@@ -182,9 +178,8 @@ namespace CalculatorProgram.m1chael888
                                             op = "/";
                                             break;
                                     }
-
-                                    history.Add($"{cleanNum1} {op} {cleanNum2} = {result}", result);
                                     count++;
+                                    history.Add(count, $"{cleanNum1} {op} {cleanNum2} = {result}");
                                     Console.WriteLine($"\nTotal calculations completed: {count}");
                                 }
                             }
