@@ -9,6 +9,7 @@ namespace CalculatorProgram.m1chael888
         {
             var calc = new Calculator();
             bool done = false;
+            int count = 0;
 
             Console.WriteLine("Console Calculator in C#");
             Console.WriteLine("------------------------\n");
@@ -70,6 +71,8 @@ namespace CalculatorProgram.m1chael888
                 }
                 Console.WriteLine("------------------------\n");
 
+                count++;
+                Console.WriteLine($"Calculations completed: {count}");
                 Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
                 if (Console.ReadLine() == "n") done = true;
                 Console.WriteLine("\n");
