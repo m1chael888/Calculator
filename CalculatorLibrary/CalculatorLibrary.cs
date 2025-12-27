@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Diagnostics;
-using System.Formats.Tar;
 
 namespace CalculatorLibrary
 {
